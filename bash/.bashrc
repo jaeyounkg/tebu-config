@@ -84,9 +84,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
 # some more ls aliases
 alias ll='ls -AlF'
 alias la='ls -A'
@@ -115,8 +112,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-# Yavide alias
-alias yavide="gvim --servername yavide -f -N -u /opt/yavide/.vimrc"
 
 # Custom commands
 function cl() {
@@ -127,31 +122,6 @@ function cll() {
 }
 export -f cl
 export -f cll
-export PATH="~/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 eval "$(direnv hook bash)"
 export PATH=$HOME/.local/bin:$PATH
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/jaeyoung/.sdkman"
-[[ -s "/home/jaeyoung/.sdkman/bin/sdkman-init.sh" ]] && source "/home/jaeyoung/.sdkman/bin/sdkman-init.sh"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/jaeyoung/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/jaeyoung/anaconda3/etc/profile.d/conda.sh" ]; then
-#         . "/home/jaeyoung/anaconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/home/jaeyoung/anaconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# <<< conda initialize <<<
-
-export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
