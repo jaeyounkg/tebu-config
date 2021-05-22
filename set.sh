@@ -2,4 +2,4 @@
 cp ./bash/.bashrc ~/
 cp ./git/.gitconfig ~/
 cp ./vim/.vimrc ~/
-cp ./vscode/settings.json ~/.config/Code/User/
+cp ./fish/config.fish ~/.config/fish/config.fish

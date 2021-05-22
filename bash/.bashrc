@@ -125,3 +125,44 @@ export -f cll
 eval "$(direnv hook bash)"
 export PATH=$HOME/.local/bin:$PATH
 
+## pyenv configs
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+## tex
+export PATH="/usr/local/texlive/2020/bin/x86_64-linux:$PATH"
+export MANPATH="/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH"
+export INFOPATH="/usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH"
+
+eval "$(opam env)"
+
+## java
+#export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+#export PATH="$JAVA_HOME/bin:$PATH"
+
+## HERP AWS setup
+export AWS_DEFAULT_REGION=ap-northeast-1
+export AWS_PROFILE=saml
+
+# init starship
+# eval "$(starship init bash)"
+
+# disable Ctrl-s
+stty stop ""
+
+# git alias
+alias g='git'
+
+# LD_LIBRARY_PATH (For kytea)
+LD_LIBRARY_PATH=/usr/local/lib
+export LD_LIBRARY_PATH
+
+
+
+# Quartus Prime
+export QSYS_ROOTDIR="/home/jaeyoung/Softwares/intelFPGA_lite/17.1/quartus/sopc_builder/bin"
+export QUARTUS_ROOTDIR="/home/jaeyoung/Softwares/intelFPGA_lite/17.1"
+export PATH="$QUARTUS_ROOTDIR/modelsim_ase/bin:$PATH"
+export PATH="$QUARTUS_ROOTDIR/quartus/bin:$PATH"
+
+
