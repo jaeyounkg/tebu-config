@@ -117,11 +117,7 @@ fi
 function cl() {
     cd "$1" && ls -AF
 }
-function cll() {
-    cd "$1" && ls -lGhAF
-}
 export -f cl
-export -f cll
 eval "$(direnv hook bash)"
 export PATH=$HOME/.local/bin:$PATH
 
@@ -136,17 +132,6 @@ export INFOPATH="/usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH"
 
 eval "$(opam env)"
 
-## java
-#export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
-#export PATH="$JAVA_HOME/bin:$PATH"
-
-## HERP AWS setup
-export AWS_DEFAULT_REGION=ap-northeast-1
-export AWS_PROFILE=saml
-
-# init starship
-# eval "$(starship init bash)"
-
 # disable Ctrl-s
 stty stop ""
 
@@ -157,7 +142,8 @@ alias g='git'
 LD_LIBRARY_PATH=/usr/local/lib
 export LD_LIBRARY_PATH
 
-
+# redshift
+alias rshift="redshift -x && redshift -O $1"
 
 # Quartus Prime
 export QSYS_ROOTDIR="/home/jaeyoung/Softwares/intelFPGA_lite/17.1/quartus/sopc_builder/bin"

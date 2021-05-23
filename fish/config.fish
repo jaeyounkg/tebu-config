@@ -53,6 +53,7 @@ abbr -a -g gsm git submodule
 # pyenv
 set -gx PATH $PATH $HOME/.pyenv/bin
 abbr -a -g pe pyenv exec
+abbr -a -g pei pyenv exec pip
 abbr -a -g pep pyenv exec python
 
 
