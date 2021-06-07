@@ -44,10 +44,10 @@ abbr -a -g grt git restore
 abbr -a -g gcp git cherry-pick
 abbr -a -g gad git add
 abbr -a -g gau git add -u
-abbr -a -g gpu git push
-abbr -a -g gpo git push origin
+abbr -a -g gpu git push origin
 abbr -a -g gpfl git push --force-with-lease origin
 abbr -a -g gsm git submodule
+abbr -a -g gpl git pull origin
 
 
 # pyenv
