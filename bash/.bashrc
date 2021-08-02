@@ -151,4 +151,8 @@ export QUARTUS_ROOTDIR="/home/jaeyoung/Softwares/intelFPGA_lite/17.1"
 export PATH="$QUARTUS_ROOTDIR/modelsim_ase/bin:$PATH"
 export PATH="$QUARTUS_ROOTDIR/quartus/bin:$PATH"
 
+# IBus
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
 
