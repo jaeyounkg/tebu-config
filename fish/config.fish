@@ -44,8 +44,7 @@ alias lm 'll --sort=modified --reverse $argv'
 # git
 alias g 'git'
 abbr -a -g glg git lg1
-abbr -a -g gco git checkout
-abbr -a -g gcos git checkout --recurse-submodules
+abbr -a -g gco git checkout --recurse-submodules
 abbr -a -g gbr git branch
 abbr -a -g gst git status
 abbr -a -g gsh git stash
@@ -53,12 +52,13 @@ abbr -a -g gcm git commit
 abbr -a -g gcmm git commit -m
 abbr -a -g gfc git fetch
 abbr -a -g grb git rebase
-abbr -a -g gri git rebase -i
+abbr -a -g grbi git rebase -i
 abbr -a -g gmg git merge
 abbr -a -g gdf git diff
 abbr -a -g gdfc git diff --compact-summary
 abbr -a -g grs git reset
 abbr -a -g grt git restore
+abbr -a -g grts git restore --staged
 abbr -a -g gcp git cherry-pick
 abbr -a -g gad git add
 abbr -a -g gau git add -u
@@ -66,6 +66,7 @@ abbr -a -g gpu git push origin
 abbr -a -g gpuf git push --force-with-lease origin
 abbr -a -g gpum git push origin master
 abbr -a -g gsm git submodule
+abbr -a -g gsmu git submodule update
 abbr -a -g gpl git pull origin
 
 # pyenv
