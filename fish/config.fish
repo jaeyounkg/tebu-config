@@ -43,7 +43,9 @@ alias lm 'll --sort=modified --reverse $argv'
 
 # git
 alias g 'git'
-abbr -a -g glg git lg1
+abbr -a -g gt git tag
+abbr -a -g gtl git tag --list
+abbr -a -g glg git lg1-specific
 abbr -a -g gco git checkout --recurse-submodules
 abbr -a -g gbr git branch
 abbr -a -g gst git status
@@ -55,7 +57,9 @@ abbr -a -g grb git rebase
 abbr -a -g grbi git rebase -i
 abbr -a -g gmg git merge
 abbr -a -g gdf git diff
-abbr -a -g gdfc git diff --compact-summary
+abbr -a -g gdfs git diff --staged
+abbr -a -g gdc git diff --compact-summary
+abbr -a -g gdcs git diff --compact-summary --staged
 abbr -a -g grs git reset
 abbr -a -g grt git restore
 abbr -a -g grts git restore --staged

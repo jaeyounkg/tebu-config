@@ -1,37 +1,11 @@
 [user]
     email = jalpr16@gmail.com
 [alias]
-    lg = !"git lg1"
-    lge = !"git lg1 master.."
-    lg1 = !"git lg1-specific --all"
-    lg2 = !"git lg2-specific --all"
-    lg3 = !"git lg3-specific --all"
-    co = !"git checkout"
-    cos = !"git checkout --recurse-submodules"
-    br = !"git branch"
-    st = !"git status"
-    sh = !"git stash"
-    cm = !"git commit"
-    cmm = !"git commit -m"
-    fc = !"git fetch"
-    rb = !"git rebase"
-    rbi = !"git rebase -i"
-    mg = !"git merge"
-    df = !"git diff"
-    dfc = !"git diff --compact-summary"
-    rs = !"git reset"
-    rt = !"git restore"
-    cp = !"git cherry-pick"
-    ad = !"git add"
-    au = !"git add -u"
-    pu = !"git push"
-    po = !"git push origin"
-    pfl = !"git push --force-with-lease"
-    sm = !"git submodule"
+    lg1 = !"git lg1-specific"
+    lg2 = !"git lg2-specific"
 
-    lg1-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+    lg1-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%cr)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
     lg2-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
-    lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
 [credential]
 	helper = cache
 [core]
