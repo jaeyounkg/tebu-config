@@ -80,6 +80,15 @@ end
 abbr -a -g pe pyenv exec
 abbr -a -g pei pyenv exec pip
 abbr -a -g pep pyenv exec python
+abbr -a -g ped pyenv exec dvc
+
+# dvc
+abbr -a -g dad pyenv exec dvc add
+abbr -a -g dst pyenv exec dvc status
+abbr -a -g dpu pyenv exec dvc push
+abbr -a -g dpl pyenv exec dvc pull
+abbr -a -g dco pyenv exec dvc checkout
+
 
 # opam
 eval (opam env)
