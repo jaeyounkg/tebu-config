@@ -46,7 +46,8 @@ alias g 'git'
 abbr -a -g gt git tag
 abbr -a -g gtl git tag --list
 abbr -a -g glg git lg1-specific
-abbr -a -g gco git checkout --recurse-submodules
+abbr -a -g gco git checkout
+abbr -a -g gcos git checkout --recurse-submodules
 abbr -a -g gbr git branch
 abbr -a -g gst git status
 abbr -a -g gsh git stash
@@ -77,6 +78,8 @@ abbr -a -g gpl git pull origin
 if not contains ~/.pyenv/bin $PATH
     set -gxa PATH ~/.pyenv/bin
 end
+status is-login; and pyenv init --path | source
+status is-interactive; and pyenv init --path | source
 abbr -a -g pe pyenv exec
 abbr -a -g pei pyenv exec pip
 abbr -a -g pep pyenv exec python
@@ -88,6 +91,7 @@ abbr -a -g dst pyenv exec dvc status
 abbr -a -g dpu pyenv exec dvc push
 abbr -a -g dpl pyenv exec dvc pull
 abbr -a -g dco pyenv exec dvc checkout
+abbr -a -g drm pyenv exec dvc remove
 
 
 # opam
@@ -102,7 +106,4 @@ eval (opam env)
 # end
 # set -g tide_left_prompt_items pwd git newline prompt_char
 # set tide_example_bg_color red
-
-# spacefish
-# set -g SPACEFISH_PROMPT_DEFAULT_PREFIX "| "
 
