@@ -11,12 +11,18 @@ set -gx GTK_IM_MODULE ibus
 set -gx XMODIFIERS @im=ibus
 set -gx QT_IM_MODULE ibus
 
-# ocaml
+# ocaml, opam
 if not contains ~/.opam/default/bin $PATH
     set -gxa PATH ~/.opam/default/bin
 end
 alias ocaml "rlwrap ocaml"
 alias dune "rlwrap dune"
+eval (opam env)
+
+# apt
+abbr -a -g sau sudo apt update
+abbr -a -g sar sudo apt remove
+abbr -a -g sai sudo apt install
 
 # exa & file navigation
 set -g EXA_BASIC_OPTIONS --color=always --time modified --time-style long-iso --group-directories-first
@@ -93,9 +99,6 @@ abbr -a -g dpl pyenv exec dvc pull
 abbr -a -g dco pyenv exec dvc checkout
 abbr -a -g drm pyenv exec dvc remove
 
-
-# opam
-eval (opam env)
 
 # tide
 # set -g tide_left_prompt_items pwd git newline prompt_char
