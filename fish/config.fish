@@ -1,3 +1,8 @@
+
+function exists
+    command -v $argv[1] &> /dev/null
+end
+
 # system
 if not contains ~/bin $PATH
     set -gxa PATH ~/bin
@@ -17,12 +22,19 @@ if not contains ~/.opam/default/bin $PATH
 end
 alias ocaml "rlwrap ocaml"
 alias dune "rlwrap dune"
-eval (opam env)
+if exists opam
+    eval (opam env)
+end
 
 # apt
 abbr -a -g sau sudo apt update
 abbr -a -g sar sudo apt remove
 abbr -a -g sai sudo apt install
+
+# dnf
+abbr -a -g sdi sudo dnf install
+abbr -a -g sdc sudo dnf check-update
+abbr -a -g sdu sudo dnf upgrade
 
 # exa & file navigation
 set -g EXA_BASIC_OPTIONS --color=always --time modified --time-style long-iso --group-directories-first
@@ -48,7 +60,6 @@ alias l 'exa $EXA_BASIC_OPTIONS $argv'
 alias lm 'll --sort=modified --reverse $argv'
 
 # git
-alias g 'git'
 abbr -a -g gt git tag
 abbr -a -g gtl git tag --list
 abbr -a -g glg git lg1-specific
@@ -75,7 +86,6 @@ abbr -a -g gad git add
 abbr -a -g gau git add -u
 abbr -a -g gpu git push origin
 abbr -a -g gpuf git push --force-with-lease origin
-abbr -a -g gpum git push origin master
 abbr -a -g gsm git submodule
 abbr -a -g gsmu git submodule update
 abbr -a -g gpl git pull origin
@@ -86,19 +96,15 @@ if not contains ~/.pyenv/bin $PATH
 end
 status is-login; and pyenv init --path | source
 status is-interactive; and pyenv init --path | source
-abbr -a -g pe pyenv exec
-abbr -a -g pei pyenv exec pip
-abbr -a -g pep pyenv exec python
-abbr -a -g ped pyenv exec dvc
+abbr -a -g pex pyenv exec
 
 # dvc
-abbr -a -g dad pyenv exec dvc add
-abbr -a -g dst pyenv exec dvc status
-abbr -a -g dpu pyenv exec dvc push
-abbr -a -g dpl pyenv exec dvc pull
-abbr -a -g dco pyenv exec dvc checkout
-abbr -a -g drm pyenv exec dvc remove
-
+abbr -a -g dad dvc add
+abbr -a -g dst dvc status
+abbr -a -g dpu dvc push
+abbr -a -g dpl dvc pull
+abbr -a -g dco dvc checkout
+abbr -a -g drm dvc remove
 
 # tide
 # set -g tide_left_prompt_items pwd git newline prompt_char

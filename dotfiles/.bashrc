@@ -1,3 +1,8 @@
+
+function exists() {
+    command -v "$1" &> /dev/null
+}
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -84,23 +89,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -AlF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -113,13 +104,25 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Custom commands
+# PATH
+export PATH=$HOME/.local/bin:$PATH
+
+# custom commands and aliases
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+alias ll='ls -AlF'
+alias la='ls -A'
+alias l='ls -CF'
 function cl() {
     cd "$1" && ls -AF
 }
 export -f cl
-eval "$(direnv hook bash)"
-export PATH=$HOME/.local/bin:$PATH
+
+# direnv
+if exists direnv ; then
+    eval "$(direnv hook bash)"
+fi
 
 ## pyenv configs
 export PYENV_ROOT="$HOME/.pyenv"
@@ -130,7 +133,9 @@ export PATH="/usr/local/texlive/2020/bin/x86_64-linux:$PATH"
 export MANPATH="/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="/usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH"
 
-eval "$(opam env)"
+if exists opam ; then
+    eval "$(opam env)"
+fi
 
 # disable Ctrl-s
 stty stop ""
@@ -155,4 +160,6 @@ export PATH="$QUARTUS_ROOTDIR/quartus/bin:$PATH"
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
+
+
 
