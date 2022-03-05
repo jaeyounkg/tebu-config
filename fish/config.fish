@@ -62,6 +62,7 @@ alias lm 'll --sort=modified --reverse $argv'
 # git
 abbr -a -g gt git tag
 abbr -a -g gtl git tag --list
+abbr -a -g gcl git clone
 abbr -a -g glg git lg1-specific
 abbr -a -g gco git checkout
 abbr -a -g gcos git checkout --recurse-submodules
