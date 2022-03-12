@@ -67,8 +67,10 @@ abbr -a -g glg git lg1-specific
 abbr -a -g gco git checkout
 abbr -a -g gcos git checkout --recurse-submodules
 abbr -a -g gbr git branch
+abbr -a -g gbra git branch --all
 abbr -a -g gst git status
 abbr -a -g gsh git stash
+abbr -a -g gshl git stash list
 abbr -a -g gcm git commit
 abbr -a -g gcmm git commit -m
 abbr -a -g gfc git fetch
@@ -88,6 +90,7 @@ abbr -a -g gau git add -u
 abbr -a -g gpu git push origin
 abbr -a -g gpuf git push --force-with-lease origin
 abbr -a -g gsm git submodule
+abbr -a -g gsmi git submodule init
 abbr -a -g gsmu git submodule update
 abbr -a -g gpl git pull origin
 
