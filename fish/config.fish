@@ -1,4 +1,3 @@
-
 function exists
     command -v $argv[1] &> /dev/null
 end
@@ -38,27 +37,33 @@ abbr -a -g sdu sudo dnf upgrade
 abbr -a -g sdr sudo dnf remove
 
 # exa & file navigation
-set -g EXA_BASIC_OPTIONS --color=always --time modified --time-style long-iso --group-directories-first
-set -g EXA_STANDARD_OPTIONS $EXA_BASIC_OPTIONS --long --all --header 
+if exists exa
+    set -g EXA_BASIC_OPTIONS --color=always --time modified --time-style long-iso --group-directories-first
+    set -g EXA_STANDARD_OPTIONS $EXA_BASIC_OPTIONS --long --all --header 
 
-function la 
-    exa $EXA_STANDARD_OPTIONS --group --binary --links --inode --blocks $argv | less -RF
+    function la 
+        exa $EXA_STANDARD_OPTIONS --group --binary --links --inode --blocks $argv | less -RF
+    end
+    function ll
+        exa $EXA_STANDARD_OPTIONS $argv | less -RF
+    end
+    function lt 
+        exa $EXA_STANDARD_OPTIONS --tree --level 2 $argv | less -RF
+    end
+    function ld 
+        exa $EXA_STANDARD_OPTIONS --tree --level $argv[1] $argv[2..] | less -RF
+    end
+
+    alias l 'exa $EXA_BASIC_OPTIONS $argv'
+    alias lm 'll --sort=modified --reverse $argv'
+else
+    alias l 'ls'
+    alias ll 'ls -al'
 end
-function ll
-    exa $EXA_STANDARD_OPTIONS $argv | less -RF
-end
-function lt 
-    exa $EXA_STANDARD_OPTIONS --tree --level 2 $argv | less -RF
-end
-function ld 
-    exa $EXA_STANDARD_OPTIONS --tree --level $argv[1] $argv[2..] | less -RF
-end
+
 function cl
     cd $argv && l
 end
-
-alias l 'exa $EXA_BASIC_OPTIONS $argv'
-alias lm 'll --sort=modified --reverse $argv'
 
 # git
 abbr -a -g gt git tag
@@ -97,12 +102,14 @@ abbr -a -g gpl git pull origin
 abbr -a -g gac "git add -u && git commit -m"
 
 # pyenv
-if not contains ~/.pyenv/bin $PATH
-    set -gxa PATH ~/.pyenv/bin
+if exists pyenv
+    if not contains ~/.pyenv/bin $PATH
+        set -gxa PATH ~/.pyenv/bin
+    end
+    status is-login; and pyenv init --path | source
+    status is-interactive; and pyenv init --path | source
+    abbr -a -g pex pyenv exec
 end
-status is-login; and pyenv init --path | source
-status is-interactive; and pyenv init --path | source
-abbr -a -g pex pyenv exec
 
 # dvc
 abbr -a -g dad dvc add
@@ -121,4 +128,11 @@ abbr -a -g drm dvc remove
 # end
 # set -g tide_left_prompt_items pwd git newline prompt_char
 # set tide_example_bg_color red
+
+# kawahara lab
+if [ (hostname) = "ampc12" ]
+    set -gx http_proxy http://192.168.1.10:3128
+    set -gx https_proxy http://192.168.1.10:3128
+    set -gx ftp_proxy http://192.168.1.10:3128
+end
 
