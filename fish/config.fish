@@ -35,6 +35,7 @@ abbr -a -g sai sudo apt install
 abbr -a -g sdi sudo dnf install
 abbr -a -g sdc sudo dnf check-update
 abbr -a -g sdu sudo dnf upgrade
+abbr -a -g sdr sudo dnf remove
 
 # exa & file navigation
 set -g EXA_BASIC_OPTIONS --color=always --time modified --time-style long-iso --group-directories-first
@@ -93,6 +94,7 @@ abbr -a -g gsm git submodule
 abbr -a -g gsmi git submodule init
 abbr -a -g gsmu git submodule update
 abbr -a -g gpl git pull origin
+abbr -a -g gac "git add -u && git commit -m"
 
 # pyenv
 if not contains ~/.pyenv/bin $PATH
