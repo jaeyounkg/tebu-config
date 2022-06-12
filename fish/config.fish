@@ -131,6 +131,10 @@ abbr -a -g drm dvc remove
 # set tide_example_bg_color red
 
 # kawahara lab
+if [ (hostname) = "sacs01" ]
+    alias python "/usr/common/anaconda3-2021.11-pytorch1.11-cuda-11.3/bin/python"
+end
+
 if [ (hostname) = "ampc12" ]
     set -gx http_proxy http://192.168.1.10:3128
     set -gx https_proxy http://192.168.1.10:3128
