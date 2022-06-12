@@ -16,12 +16,12 @@ set -gx XMODIFIERS @im=ibus
 set -gx QT_IM_MODULE ibus
 
 # ocaml, opam
-if not contains ~/.opam/default/bin $PATH
-    set -gxa PATH ~/.opam/default/bin
-end
 alias ocaml "rlwrap ocaml"
 alias dune "rlwrap dune"
 if exists opam
+    if not contains ~/.opam/default/bin $PATH
+        set -gxa PATH ~/.opam/default/bin
+    end
     eval (opam env)
 end
 
