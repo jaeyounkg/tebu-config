@@ -1,3 +1,4 @@
+
 function exists
     command -v $argv[1] &> /dev/null
 end
@@ -58,7 +59,7 @@ if exists exa
     alias lm 'll --sort=modified --reverse $argv'
 else
     alias l 'ls'
-    alias ll 'ls -al'
+    alias ll 'ls -alh'
 end
 
 function cl

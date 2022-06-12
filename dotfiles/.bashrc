@@ -161,5 +161,19 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
+# kawahara lab
+if [[ `hostname` == "sacs01" ]]; then
+    alias python="/usr/common/anaconda3-2021.11-pytorch1.11-cuda-11.3/bin/python"
+fi
 
+if [[ `hostname` == "ampc12" ]]; then
+    export http_proxy=http://192.168.1.10:3128
+    export https_proxy=http://192.168.1.10:3128
+    export ftp_proxy=http://192.168.1.10:3128
+fi
+
+# force run fish
+if [ -x "$HOME/.local/bin/fish" ]; then
+    exec "$HOME/.local/bin/fish"
+fi
 
