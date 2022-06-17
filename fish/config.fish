@@ -27,15 +27,19 @@ if exists opam
 end
 
 # apt
-abbr -a -g sau sudo apt update
-abbr -a -g sar sudo apt remove
-abbr -a -g sai sudo apt install
+if exists apt
+    abbr -a -g sau sudo apt update
+    abbr -a -g sar sudo apt remove
+    abbr -a -g sai sudo apt install
+end
 
 # dnf
-abbr -a -g sdi sudo dnf install
-abbr -a -g sdc sudo dnf check-update
-abbr -a -g sdu sudo dnf upgrade
-abbr -a -g sdr sudo dnf remove
+if exists dnf
+    abbr -a -g sdi sudo dnf install
+    abbr -a -g sdc sudo dnf check-update
+    abbr -a -g sdu sudo dnf upgrade
+    abbr -a -g sdr sudo dnf remove
+end
 
 # exa & file navigation
 if exists exa
@@ -43,13 +47,13 @@ if exists exa
     set -g EXA_STANDARD_OPTIONS $EXA_BASIC_OPTIONS --long --all --header 
 
     function la 
-        exa $EXA_STANDARD_OPTIONS --group --binary --links --inode --blocks $argv | less -RF
+        exa $EXA_STANDARD_OPTIONS --group --binary --links --inode --blocks $argv
     end
     function ll
-        exa $EXA_STANDARD_OPTIONS $argv | less -RF
+        exa $EXA_STANDARD_OPTIONS $argv
     end
     function lt 
-        exa $EXA_STANDARD_OPTIONS --tree --level 2 $argv | less -RF
+        exa $EXA_STANDARD_OPTIONS --tree --level 2 $argv
     end
     function ld 
         exa $EXA_STANDARD_OPTIONS --tree --level $argv[1] $argv[2..] | less -RF
@@ -57,9 +61,15 @@ if exists exa
 
     alias l 'exa $EXA_BASIC_OPTIONS $argv'
     alias lm 'll --sort=modified --reverse $argv'
+
+    alias lal 'la | less -RF'
+    alias lll 'll | less -RF'
+    alias ltl 'lt | less -RF'
+    alias lml 'lm | less -RF'
 else
     alias l 'ls'
     alias ll 'ls -alh'
+    alias lll 'ls -alh | less -RF'
 end
 
 function cl
@@ -67,40 +77,42 @@ function cl
 end
 
 # git
-abbr -a -g gt git tag
-abbr -a -g gtl git tag --list
-abbr -a -g gcl git clone
-abbr -a -g glg git lg1-specific
-abbr -a -g gco git checkout
-abbr -a -g gcos git checkout --recurse-submodules
-abbr -a -g gbr git branch
-abbr -a -g gbra git branch --all
-abbr -a -g gst git status
-abbr -a -g gsh git stash
-abbr -a -g gshl git stash list
-abbr -a -g gcm git commit
-abbr -a -g gcmm git commit -m
-abbr -a -g gfc git fetch
-abbr -a -g grb git rebase
-abbr -a -g grbi git rebase -i
-abbr -a -g gmg git merge
-abbr -a -g gdf git diff
-abbr -a -g gdfs git diff --staged
-abbr -a -g gdc git diff --compact-summary
-abbr -a -g gdcs git diff --compact-summary --staged
-abbr -a -g grs git reset
-abbr -a -g grt git restore
-abbr -a -g grts git restore --staged
-abbr -a -g gcp git cherry-pick
-abbr -a -g gad git add
-abbr -a -g gau git add -u
-abbr -a -g gpu git push origin
-abbr -a -g gpuf git push --force-with-lease origin
-abbr -a -g gsm git submodule
-abbr -a -g gsmi git submodule init
-abbr -a -g gsmu git submodule update
-abbr -a -g gpl git pull origin
-abbr -a -g gac "git add -u && git commit -m"
+if exists git
+    abbr -a -g gt git tag
+    abbr -a -g gtl git tag --list
+    abbr -a -g gcl git clone
+    abbr -a -g glg git lg1-specific
+    abbr -a -g gco git checkout
+    abbr -a -g gcos git checkout --recurse-submodules
+    abbr -a -g gbr git branch
+    abbr -a -g gbra git branch --all
+    abbr -a -g gst git status
+    abbr -a -g gsh git stash
+    abbr -a -g gshl git stash list
+    abbr -a -g gcm git commit
+    abbr -a -g gcmm git commit -m
+    abbr -a -g gfc git fetch
+    abbr -a -g grb git rebase
+    abbr -a -g grbi git rebase -i
+    abbr -a -g gmg git merge
+    abbr -a -g gdf git diff
+    abbr -a -g gdfs git diff --staged
+    abbr -a -g gdc git diff --compact-summary
+    abbr -a -g gdcs git diff --compact-summary --staged
+    abbr -a -g grs git reset
+    abbr -a -g grt git restore
+    abbr -a -g grts git restore --staged
+    abbr -a -g gcp git cherry-pick
+    abbr -a -g gad git add
+    abbr -a -g gau git add -u
+    abbr -a -g gpu git push origin
+    abbr -a -g gpuf git push --force-with-lease origin
+    abbr -a -g gsm git submodule
+    abbr -a -g gsmi git submodule init
+    abbr -a -g gsmu git submodule update
+    abbr -a -g gpl git pull origin
+    abbr -a -g gac "git add -u && git commit -m"
+end
 
 # pyenv
 if exists pyenv
@@ -113,12 +125,14 @@ if exists pyenv
 end
 
 # dvc
-abbr -a -g dad dvc add
-abbr -a -g dst dvc status
-abbr -a -g dpu dvc push
-abbr -a -g dpl dvc pull
-abbr -a -g dco dvc checkout
-abbr -a -g drm dvc remove
+if exists dvc
+    abbr -a -g dad dvc add
+    abbr -a -g dst dvc status
+    abbr -a -g dpu dvc push
+    abbr -a -g dpl dvc pull
+    abbr -a -g dco dvc checkout
+    abbr -a -g drm dvc remove
+end
 
 # tide
 # set -g tide_left_prompt_items pwd git newline prompt_char
@@ -130,14 +144,14 @@ abbr -a -g drm dvc remove
 # set -g tide_left_prompt_items pwd git newline prompt_char
 # set tide_example_bg_color red
 
-# kawahara lab
-if [ (hostname) = "sacs01" ]
-    alias python "/usr/common/anaconda3-2021.11-pytorch1.11-cuda-11.3/bin/python"
-end
-
-if [ (hostname) = "ampc12" ]
+if [ (hostname) = "ampc12" ] || [ (hostname) = "sacs01" ]
     set -gx http_proxy http://192.168.1.10:3128
     set -gx https_proxy http://192.168.1.10:3128
     set -gx ftp_proxy http://192.168.1.10:3128
+
+    # this line prevents `Exception ignored in: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='UTF-8'>`
+    status is-interactive &&
+    # below line is written by `conda init`
+    eval /home/jaeyoung/Programs/anaconda3/bin/conda "shell.fish" "hook" $argv | source
 end
 
