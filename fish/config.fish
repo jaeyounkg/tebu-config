@@ -26,6 +26,11 @@ if exists opam
     eval (opam env)
 end
 
+# golang
+if not contains /usr/local/go/bin $PATH
+    set -gxa PATH /usr/local/go/bin
+end
+
 # apt
 if exists apt
     abbr -a -g sau sudo apt update
