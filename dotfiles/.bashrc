@@ -173,10 +173,9 @@ if [[ `hostname` == "ampc12" ]]; then
 fi
 
 # force run fish
-if [ -x "$HOME/.local/bin/fish" ]; then
-    exec "$HOME/.local/bin/fish"
-fi
-
+# if [ -x "$HOME/.local/bin/fish" ]; then
+#     exec "$HOME/.local/bin/fish"
+# fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

@@ -66,11 +66,23 @@ if exists exa
 
     alias l 'exa $EXA_BASIC_OPTIONS $argv'
     alias lm 'll --sort=modified --reverse $argv'
+    alias lM 'll --sort=modified $argv'
 
-    alias lal 'la | less -RF'
-    alias lll 'll | less -RF'
-    alias ltl 'lt | less -RF'
-    alias lml 'lm | less -RF'
+    function lal
+        la $argv | less -RF
+    end
+    function lll
+        ll $argv | less -RF
+    end
+    function ltl
+        lt $argv | less -RF
+    end
+    function lml
+        lm $argv | less -RF
+    end
+    function lMl
+        lM $argv | less -RF
+    end
 else
     alias l 'ls'
     alias ll 'ls -alh'
@@ -119,7 +131,11 @@ if exists git
     abbr -a -g gac "git add -u && git commit -m"
 end
 
-# pyenv
+# python
+abbr -a -g pym python -m
+abbr -a -g pipi pip install
+abbr -a -g pyp python -m pip
+abbr -a -g pypi python -m pip install
 if exists pyenv
     if not contains ~/.pyenv/bin $PATH
         set -gxa PATH ~/.pyenv/bin
@@ -128,6 +144,7 @@ if exists pyenv
     status is-interactive; and pyenv init --path | source
     abbr -a -g pex pyenv exec
 end
+abbr tfset set -gxa LD_LIBRARY_PATH $CONDA_PREFIX/lib/
 
 # dvc
 if exists dvc
@@ -149,7 +166,7 @@ end
 # set -g tide_left_prompt_items pwd git newline prompt_char
 # set tide_example_bg_color red
 
-if [ (hostname) = "ampc12" ] || [ (hostname) = "sacs01" ]
+if [ (hostname) = "ampc12" ] || [ (string sub -l 4 (hostname)) = "sacs" ]
     set -gx http_proxy http://192.168.1.10:3128
     set -gx https_proxy http://192.168.1.10:3128
     set -gx ftp_proxy http://192.168.1.10:3128
