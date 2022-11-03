@@ -162,10 +162,6 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
 # kawahara lab
-if [[ `hostname` == "sacs01" ]]; then
-    alias python="/usr/common/anaconda3-2021.11-pytorch1.11-cuda-11.3/bin/python"
-fi
-
 if [[ `hostname` == "ampc12" ]]; then
     export http_proxy=http://192.168.1.10:3128
     export https_proxy=http://192.168.1.10:3128
@@ -179,14 +175,14 @@ fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/jaeyoung/Programs/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/jaeyoung/Softwares/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/jaeyoung/Programs/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/jaeyoung/Programs/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/jaeyoung/Softwares/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/jaeyoung/Softwares/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/jaeyoung/Programs/anaconda3/bin:$PATH"
+        export PATH="/home/jaeyoung/Softwares/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -194,3 +190,7 @@ unset __conda_setup
 
 alias python="/usr/common/anaconda3-2020.07-pytorch1.7-cuda-10.2/bin/python"
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

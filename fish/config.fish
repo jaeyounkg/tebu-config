@@ -177,3 +177,8 @@ if [ (hostname) = "ampc12" ] || [ (string sub -l 4 (hostname)) = "sacs" ]
     eval /home/jaeyoung/Programs/anaconda3/bin/conda "shell.fish" "hook" $argv | source
 end
 
+#>>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /home/jaeyoung/Softwares/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
+
