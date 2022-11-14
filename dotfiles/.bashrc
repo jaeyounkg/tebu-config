@@ -136,21 +136,40 @@ fi
 stty stop ""
 
 # git alias
-alias g='git'
-alias gst='git status'
-alias gco='git checkout'
-alias gcos='git checkout --recurse-submodules'
-alias gpl='git pull origin'
-alias gpu='git push origin'
-alias gcm='git commit'
-alias gcmm='git commit -m'
-alias gcl='git clone'
-alias gdf='git diff'
-alias gdfs='git diff --staged'
-alias gdc='git diff --compact-summary'
-alias gdcs='git diff --compact-summary --staged'
-alias gad='git add'
-alias gau='git add -u'
+alias gt="git tag"
+alias gtl="git tag --list"
+alias gcl="git clone"
+alias glg="git lg1-specific"
+alias gco="git checkout"
+alias gcos="git checkout --recurse-submodules"
+alias gbr="git branch"
+alias gbra="git branch --all"
+alias gst="git status"
+alias gsh="git stash"
+alias gshl="git stash list"
+alias gcm="git commit"
+alias gcmm="git commit -m"
+alias gfc="git fetch"
+alias grb="git rebase"
+alias grbi="git rebase -i"
+alias gmg="git merge"
+alias gdf="git diff"
+alias gdfs="git diff --staged"
+alias gdc="git diff --compact-summary"
+alias gdcs="git diff --compact-summary --staged"
+alias grs="git reset"
+alias grt="git restore"
+alias grts="git restore --staged"
+alias gcp="git cherry-pick"
+alias gad="git add"
+alias gau="git add -u"
+alias gpu="git push origin"
+alias gpuf="git push --force-with-lease origin"
+alias gsm="git submodule"
+alias gsmi="git submodule init"
+alias gsmu="git submodule update"
+alias gpl="git pull origin"
+alias gac="git add -u && git commit -m"
 
 # redshift
 alias rshift="redshift -x && redshift -O $1"
