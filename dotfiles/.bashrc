@@ -128,11 +128,6 @@ fi
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
-## tex
-export PATH="/usr/local/texlive/2020/bin/x86_64-linux:$PATH"
-export MANPATH="/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH"
-export INFOPATH="/usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH"
-
 if exists opam ; then
     eval "$(opam env)"
 fi
@@ -142,19 +137,23 @@ stty stop ""
 
 # git alias
 alias g='git'
-
-# LD_LIBRARY_PATH (For kytea)
-LD_LIBRARY_PATH=/usr/local/lib
-export LD_LIBRARY_PATH
+alias gst='git status'
+alias gco='git checkout'
+alias gcos='git checkout --recurse-submodules'
+alias gpl='git pull'
+alias gpu='git push'
+alias gcm='git commit'
+alias gcmm='git commit -m'
+alias gcl='git clone'
+alias gdf='git diff'
+alias gdfs='git diff --staged'
+alias gdc='git diff --compact-summary'
+alias gdcs='git diff --compact-summary --staged'
+alias gad='git add'
+alias gau='git add -u'
 
 # redshift
 alias rshift="redshift -x && redshift -O $1"
-
-# Quartus Prime
-export QSYS_ROOTDIR="/home/jaeyoung/Softwares/intelFPGA_lite/17.1/quartus/sopc_builder/bin"
-export QUARTUS_ROOTDIR="/home/jaeyoung/Softwares/intelFPGA_lite/17.1"
-export PATH="$QUARTUS_ROOTDIR/modelsim_ase/bin:$PATH"
-export PATH="$QUARTUS_ROOTDIR/quartus/bin:$PATH"
 
 # IBus
 export GTK_IM_MODULE=ibus
@@ -188,9 +187,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-alias python="/usr/common/anaconda3-2020.07-pytorch1.7-cuda-10.2/bin/python"
-
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
