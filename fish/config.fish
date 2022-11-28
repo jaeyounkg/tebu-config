@@ -136,7 +136,7 @@ abbr -a -g pym python -m
 abbr -a -g pipi pip install
 abbr -a -g pyp python -m pip
 abbr -a -g pypi python -m pip install
-if exists pyenv
+if exists pyenv && not exists conda
     if not contains ~/.pyenv/bin $PATH
         set -gxa PATH ~/.pyenv/bin
     end
