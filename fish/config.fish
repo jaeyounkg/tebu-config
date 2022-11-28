@@ -156,25 +156,19 @@ if exists dvc
     abbr -a -g drm dvc remove
 end
 
-# tide
-# set -g tide_left_prompt_items pwd git newline prompt_char
-# set -g tide_left_prompt_suffix ""
-# function _tide_item_example
-#     set_color yellow
-#     echo "Hello hello!"
-# end
-# set -g tide_left_prompt_items pwd git newline prompt_char
-# set tide_example_bg_color red
+# guild
+if exists guild
+    abbr -a -g guc guild compare
+    abbr -a -g gun guild run
+    abbr -a -g gus guild runs
+    abbr -a -g gut guild tag
+    abbr -a -g guv guild view
+    abbr -a -g gul guild label
+end
 
-if [ (hostname) = "ampc12" ] || [ (string sub -l 4 (hostname)) = "sacs" ]
-    set -gx http_proxy http://192.168.1.10:3128
-    set -gx https_proxy http://192.168.1.10:3128
-    set -gx ftp_proxy http://192.168.1.10:3128
-
-    # this line prevents `Exception ignored in: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='UTF-8'>`
-    status is-interactive &&
-    # below line is written by `conda init`
-    eval /home/jaeyoung/Programs/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+# ghcup
+if not contains ~/.ghcup/bin $PATH
+    set -gxa PATH ~/.ghcup/bin
 end
 
 #>>> conda initialize >>>
@@ -182,3 +176,16 @@ end
 eval /home/jaeyoung/Softwares/anaconda3/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
+if [ (string sub -l 4 (hostname)) = "ampc" ] || [ (string sub -l 4 (hostname)) = "sacs" ]
+    set -gx http_proxy http://192.168.1.10:3128
+    set -gx https_proxy http://192.168.1.10:3128
+    set -gx ftp_proxy http://192.168.1.10:3128
+    set -gx HTTP_PROXY http://192.168.1.10:3128
+    set -gx HTTPS_PROXY http://192.168.1.10:3128
+    set -gx FTP_PROXY http://192.168.1.10:3128
+
+    # this line prevents `Exception ignored in: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='UTF-8'>`
+    status is-interactive &&
+    # below line is written by `conda init`
+    eval /home/jaeyoung/Programs/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+end

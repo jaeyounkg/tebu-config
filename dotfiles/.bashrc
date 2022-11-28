@@ -133,46 +133,46 @@ if exists opam ; then
 fi
 
 # disable Ctrl-s
-stty stop ""
+stty stop ''
 
 # git alias
-alias gt="git tag"
-alias gtl="git tag --list"
-alias gcl="git clone"
-alias glg="git lg1-specific"
-alias gco="git checkout"
-alias gcos="git checkout --recurse-submodules"
-alias gbr="git branch"
-alias gbra="git branch --all"
-alias gst="git status"
-alias gsh="git stash"
-alias gshl="git stash list"
-alias gcm="git commit"
-alias gcmm="git commit -m"
-alias gfc="git fetch"
-alias grb="git rebase"
-alias grbi="git rebase -i"
-alias gmg="git merge"
-alias gdf="git diff"
-alias gdfs="git diff --staged"
-alias gdc="git diff --compact-summary"
-alias gdcs="git diff --compact-summary --staged"
-alias grs="git reset"
-alias grt="git restore"
-alias grts="git restore --staged"
-alias gcp="git cherry-pick"
-alias gad="git add"
-alias gau="git add -u"
-alias gpu="git push origin"
-alias gpuf="git push --force-with-lease origin"
-alias gsm="git submodule"
-alias gsmi="git submodule init"
-alias gsmu="git submodule update"
-alias gpl="git pull origin"
-alias gac="git add -u && git commit -m"
+alias gt='git tag'
+alias gtl='git tag --list'
+alias gcl='git clone'
+alias glg='git lg1-specific'
+alias gco='git checkout'
+alias gcos='git checkout --recurse-submodules'
+alias gbr='git branch'
+alias gbra='git branch --all'
+alias gst='git status'
+alias gsh='git stash'
+alias gshl='git stash list'
+alias gcm='git commit'
+alias gcmm='git commit -m'
+alias gfc='git fetch'
+alias grb='git rebase'
+alias grbi='git rebase -i'
+alias gmg='git merge'
+alias gdf='git diff'
+alias gdfs='git diff --staged'
+alias gdc='git diff --compact-summary'
+alias gdcs='git diff --compact-summary --staged'
+alias grs='git reset'
+alias grt='git restore'
+alias grts='git restore --staged'
+alias gcp='git cherry-pick'
+alias gad='git add'
+alias gau='git add -u'
+alias gpu='git push origin'
+alias gpuf='git push --force-with-lease origin'
+alias gsm='git submodule'
+alias gsmi='git submodule init'
+alias gsmu='git submodule update'
+alias gpl='git pull origin'
+alias gac='git add -u && git commit -m'
 
 # redshift
-alias rshift="redshift -x && redshift -O $1"
+alias rshift="redshift -P -O $1"
 
 # IBus
 export GTK_IM_MODULE=ibus
@@ -180,16 +180,21 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
 # kawahara lab
-if [[ `hostname` == "ampc12" ]]; then
+hostname=$(hostname)
+if [[ ${hostname:0:4} = 'ampc' || ${hostname:0:4} = 'sacs' ]]; then
     export http_proxy=http://192.168.1.10:3128
     export https_proxy=http://192.168.1.10:3128
     export ftp_proxy=http://192.168.1.10:3128
-fi
+    export HTTP_PROXY=http://192.168.1.10:3128
+    export HTTPS_PROXY=http://192.168.1.10:3128
+    export FTP_PROXY=http://192.168.1.10:3128
 
-# force run fish
-# if [ -x "$HOME/.local/bin/fish" ]; then
-#     exec "$HOME/.local/bin/fish"
-# fi
+    # force run fish
+    fish_hostnames=(ampc12 sacs01 sacs09 sacs10 sacs14)
+    if [[ -x "$HOME/.local/bin/fish" ]] && echo ${fish_hostnames[@]} | grep -w -q $(hostname); then
+        exec "$HOME/.local/bin/fish"
+    fi
+fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -206,8 +211,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-
+#[ -f "/home/jaeyoung/.ghcup/env" ] && source "/home/jaeyoung/.ghcup/env" # ghcup-env
+[ -f "/home/jaeyoung/.ghcup/env" ] && source "/home/jaeyoung/.ghcup/env" # ghcup-env
