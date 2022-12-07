@@ -3,6 +3,10 @@ function exists
     command -v $argv[1] &> /dev/null
 end
 
+function wj
+    iconv -f WINDOWS-31J -t UTF-8 $argv
+end
+
 # system
 if not contains ~/bin $PATH
     set -gxa PATH ~/bin
