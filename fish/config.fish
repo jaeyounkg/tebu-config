@@ -136,6 +136,7 @@ if exists git
 end
 
 # python
+abbr -a -g py python
 abbr -a -g pym python -m
 abbr -a -g pipi pip install
 abbr -a -g pyp python -m pip
