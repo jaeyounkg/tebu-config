@@ -20,12 +20,21 @@
             ]
         },
         {
-            "description": "Apply colemak",
+            "description": "Apply ergonomic colemak",
             "manipulators": [
                 {   "type": "basic",
                     "from": {"key_code": "b", "modifiers": {"optional": ["shift", "control", "option", "left_command"]}},
-                    "to": [{"key_code": "fn"}],
+                    "to": [{"key_code": "quote"}],
                     "conditions": [{"type": "input_source_if", "input_sources": [{"language": "en"}, {"language": "ja"}]}]},
+                {   "type": "basic",
+                    "from": {"key_code": "semicolon", "modifiers": {"optional": ["shift", "control", "option", "left_command"]}},
+                    "to": [{"key_code": "quote"}],
+                    "conditions": [{"type": "input_source_if", "input_sources": [{"language": "ko"}]}]},
+                {   "type": "basic",
+                    "from": {"key_code": "semicolon", "modifiers": {"optional": ["shift", "control", "option", "left_command"]}},
+                    "to": [{"key_code": "o"}],
+                    "conditions": [{"type": "input_source_if", "input_sources": [{"language": "en"}, {"language": "ja"}]}]},
+
                 {   "type": "basic",
                     "from": {"key_code": "w", "modifiers": {"optional": ["shift", "control", "option", "left_command"]}},
                     "to": [{"key_code": "z"}],
@@ -107,10 +116,6 @@
                     "to": [{"key_code": "i"}],
                     "conditions": [{"type": "input_source_if", "input_sources": [{"language": "en"}, {"language": "ja"}]}]},
                 {   "type": "basic",
-                    "from": {"key_code": "semicolon", "modifiers": {"optional": ["shift", "control", "option", "left_command"]}},
-                    "to": [{"key_code": "o"}],
-                    "conditions": [{"type": "input_source_if", "input_sources": [{"language": "en"}, {"language": "ja"}]}]},
-                {   "type": "basic",
                     "from": {"key_code": "n", "modifiers": {"optional": ["shift", "control", "option", "left_command"]}},
                     "to": [{"key_code": "m"}],
                     "conditions": [{"type": "input_source_if", "input_sources": [{"language": "en"}, {"language": "ja"}]}]},
@@ -118,6 +123,23 @@
                     "from": {"key_code": "m", "modifiers": {"optional": ["shift", "control", "option", "left_command"]}},
                     "to": [{"key_code": "h"}],
                     "conditions": [{"type": "input_source_if", "input_sources": [{"language": "en"}, {"language": "ja"}]}]}
+            ]
+        },
+        {
+            "description": "Misc remapping for JIS symbols and stuff (apply after colemak)",
+            "manipulators": [
+                {   "type": "basic",
+                    "from": {"key_code": "quote", "modifiers": {"optional": ["any"]}},
+                    "to": [{"key_code": "semicolon"}]},
+                {   "type": "basic",
+                    "from": {"key_code": "international1", "modifiers": {"optional": ["any"]}},
+                    "to": [{"key_code": "slash"}]},
+                {   "type": "basic",
+                    "from": {"key_code": "fn", "modifiers": {"optional": ["any"]}},
+                    "to": [{"key_code": "grave_accent_and_tilde"}]},
+                {   "type": "basic",
+                    "from": {"key_code": "right_shift", "modifiers": {"optional": ["any"]}},
+                    "to": [{"key_code": "fn"}]}
             ]
         },
         {
@@ -175,3 +197,4 @@
         }
     ]
 }
+
