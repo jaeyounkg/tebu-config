@@ -9,3 +9,6 @@ done
 if echo $@ | grep -q "all\|fish"; then
     cp -v ./fish/config.fish $HOME/.config/fish/config.fish
 fi
+if echo $@ | grep -q "karabiner"; then
+    cp -v ./karabiner/11111111.json $HOME/.config/karabiner/assets/complex_modifications/11111111.json
+fi

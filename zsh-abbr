@@ -48,6 +48,7 @@ abbr dpu="dvc push"
 abbr dpl="dvc pull"
 abbr dco="dvc checkout"
 abbr drm="dvc remove"
+abbr dcm="dvc commit"
 
 abbr guc="guild compare"
 abbr gun="guild run"
