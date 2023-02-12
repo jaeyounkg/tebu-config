@@ -220,12 +220,12 @@
                     "from": {"key_code": "escape", "modifiers": {"optional": ["any"]}},
                     "to": [{"key_code": "grave_accent_and_tilde"}],
                     "conditions": [{"type": "device_unless", "identifiers": [{"product_id": 50895, "vendor_id": 12951}]}]
-                },
-                {   "type": "basic",
-                    "from": {"key_code": "international3", "modifiers": {"optional": ["any"]}},
-                    "to": [{"key_code": "backslash"}],
-                    "conditions": [{"type": "device_unless", "identifiers": [{"product_id": 50895, "vendor_id": 12951}]}]
                 }
+                // {   "type": "basic",
+                //     "from": {"key_code": "international3", "modifiers": {"optional": ["any"]}},
+                //     "to": [{"key_code": "backslash"}],
+                //     "conditions": [{"type": "device_unless", "identifiers": [{"product_id": 50895, "vendor_id": 12951}]}]
+                // }
             ]
         },
 
@@ -250,11 +250,6 @@
                 {   "type": "basic",
                     "from": {"key_code": "semicolon", "modifiers": {"mandatory": ["right_command"], "optional": ["any"]}},
                     "to": [{"key_code": "right_arrow"}],
-                    "conditions": [{"type": "device_unless", "identifiers": [{"product_id": 50895, "vendor_id": 12951}]}]
-                },
-                {   "type": "basic",
-                    "from": {"key_code": "spacebar", "modifiers": {"mandatory": ["right_command"], "optional": ["any"]}},
-                    "to": [{"key_code": "tab"}],
                     "conditions": [{"type": "device_unless", "identifiers": [{"product_id": 50895, "vendor_id": 12951}]}]
                 }
             ]
@@ -324,6 +319,11 @@
                     "conditions": [{"type": "device_unless", "identifiers": [{"product_id": 50895, "vendor_id": 12951}]}]
                 },
                 {   "type": "basic",
+                    "from": {"key_code": "o", "modifiers": {"mandatory": ["right_command"], "optional": ["any"]}},
+                    "to": [{"key_code": "tab"}],
+                    "conditions": [{"type": "device_unless", "identifiers": [{"product_id": 50895, "vendor_id": 12951}]}]
+                },
+                {   "type": "basic",
                     "from": {"key_code": "p", "modifiers": {"mandatory": ["right_command"], "optional": ["any"]}},
                     "to": [{"key_code": "backslash"}],
                     "conditions": [{"type": "device_unless", "identifiers": [{"product_id": 50895, "vendor_id": 12951}]}]
@@ -373,6 +373,12 @@
                 {   "type": "basic",
                     "from": {"key_code": "t", "modifiers": {"mandatory": ["right_command"], "optional": ["any"]}},
                     "to": [{"key_code": "3", "modifiers": ["left_shift"]}],
+                    "conditions": [{"type": "device_unless", "identifiers": [{"product_id": 50895, "vendor_id": 12951}]}]
+                },
+
+                {   "type": "basic",
+                    "from": {"key_code": "spacebar", "modifiers": {"mandatory": ["right_command"], "optional": ["any"]}},
+                    "to": [{"key_code": "spacebar"}],
                     "conditions": [{"type": "device_unless", "identifiers": [{"product_id": 50895, "vendor_id": 12951}]}]
                 }
             ]
