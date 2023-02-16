@@ -48,12 +48,18 @@ format = '[\($state( $progress_current of $progress_total)\)]($style) '
 # style = "bright-white"
 # format = "$all_status$ahead_behind"
 
+[username]
+style_user = "bold dimmed blue"
+show_always = false
+
 [hostname]
-ssh_only = false
-format = "<[$hostname]($style)>"
+ssh_only = true
+ssh_symbol = ''
+# ssh_symbol = '🌐 '
+format = '[$ssh_symbol$hostname]($style) '
 trim_at = "-"
 style = "bold dimmed white"
-disabled = true
+disabled = false
 
 [julia]
 format = "[$symbol$version]($style) "
@@ -76,10 +82,6 @@ style = "bold green"
 [rust]
 format = "[$symbol$version]($style) "
 style = "bold green"
-
-[username]
-style_user = "bold dimmed blue"
-show_always = false
 
 [nodejs]
 format = "via [🤖 $version](bold green) "
