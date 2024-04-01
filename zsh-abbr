@@ -56,3 +56,6 @@ abbr gus="guild runs"
 abbr gut="guild tag"
 abbr guv="guild view"
 abbr gul="guild label"
+
+abbr coi="conda install"
+abbr coic="conda install conda-forge::"
