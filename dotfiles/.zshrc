@@ -59,7 +59,7 @@ function cl() {
 
 
 # basic setup
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 HYPHEN_INSENSITIVE="true" # Hyphen-insensitive completion, case-sensitive completion must be off. _ and - will be interchangeable.
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # DISABLE_MAGIC_FUNCTIONS="true" # enable if pasting URLs and other text is messed up.
@@ -80,3 +80,29 @@ source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
 
 # starship
 eval "$(starship init zsh)"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/jaeyoung/Softwares/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/jaeyoung/Softwares/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/jaeyoung/Softwares/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/jaeyoung/Softwares/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+# haskell
+[ -f "/Users/jaeyoung/.ghcup/env" ] && source "/Users/jaeyoung/.ghcup/env" # ghcup-env
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+source /Users/jaeyoung/.docker/init-zsh.sh || true # Added by Docker Desktop
