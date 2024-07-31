@@ -59,3 +59,9 @@ abbr gul="guild label"
 
 abbr coi="conda install"
 abbr coic="conda install conda-forge::"
+
+abbr l="lsd"
+abbr ll="lsd -l"
+abbr lal="lsd -al"
+abbr lt="lsd --tree --depth 2"
+abbr lt2="lsd --tree --depth 3"
