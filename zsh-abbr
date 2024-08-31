@@ -35,6 +35,7 @@ abbr gsmi="git submodule init"
 abbr gsmu="git submodule update"
 abbr gpl="git pull origin"
 abbr gac="git add -u && git commit -m"
+abbr glgl="git lg1-specific --reflog"
 
 abbr py="python"
 abbr pym="python -m"
