@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
-files=(bashrc gitconfig vimrc tmux.conf ssh zshrc)
-names=(bash git vim tmux ssh zsh)
+files=(bashrc gitconfig tmux.conf ssh zshrc)
+names=(bash git tmux ssh zsh)
 for ((i=0; i < ${#files[@]}; i++)) do
     if echo $@ | grep -q "all\|${names[i]}"; then
         cp -vr ./dotfiles/.*${files[i]} $HOME/
     fi
 done
+if echo $@ | grep -q "vim"; then
+    cp -v vim/.vimrc $HOME/
+    cp -rv vim/colors $HOME/vim/
+fi
 if echo $@ | grep -q "fish"; then
     cp -v ./fish/config.fish $HOME/.config/fish/config.fish
 fi
