@@ -212,5 +212,4 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
-#[ -f "/home/jaeyoung/.ghcup/env" ] && source "/home/jaeyoung/.ghcup/env" # ghcup-env
 [ -f "/home/jaeyoung/.ghcup/env" ] && source "/home/jaeyoung/.ghcup/env" # ghcup-env
