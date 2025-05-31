@@ -8,7 +8,7 @@ for ((i=0; i < ${#files[@]}; i++)) do
 done
 if echo $@ | grep -q "vim"; then
     cp -v vim/.vimrc $HOME/
-    cp -rv vim/colors $HOME/vim/
+    cp -rv vim/colors $HOME/.vim/
 fi
 if echo $@ | grep -q "fish"; then
     cp -v ./fish/config.fish $HOME/.config/fish/config.fish
