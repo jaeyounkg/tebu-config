@@ -2,6 +2,14 @@
 	email = jalpr16@gmail.com
 	name = jaeyoung
 [alias]
+    a = add
+    co = checkout
+    br = branch
+    cm = commit
+    st = status
+    pu = push
+    pl = pl
+    lg = lg1
     lg1 = !"git lg1-specific"
     lg2 = !"git lg2-specific"
 
