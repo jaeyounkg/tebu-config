@@ -17,6 +17,7 @@ nnoremap <S-Right> <C-W>l
 set wildmenu
 set wildmode=list:longest,full
 set scrolloff=1
+set clipboard=unnamedplus
 
 let mapleader = " "
 nnoremap <leader>s /^\s*

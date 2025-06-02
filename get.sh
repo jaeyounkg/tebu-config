@@ -10,6 +10,10 @@ if echo $@ | grep -q "vim"; then
     cp -v $HOME/.vimrc ./vim/
     cp -rv $HOME/.vim/colors ./vim/
 fi
+if echo $@ | grep -q "nvim"; then
+    cp -v $HOME/.config/nvim/init.lua ./nvim/init.lua
+    cp -rv $HOME/.config/nvim/colors ./nvim/
+fi
 if echo $@ | grep -q "fish"; then
     cp -v $HOME/.config/fish/config.fish ./fish/config.fish
 fi
