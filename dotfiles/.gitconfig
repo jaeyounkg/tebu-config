@@ -3,6 +3,7 @@
 	name = jaeyoung
 [alias]
     a = add
+    cl = clone
     co = checkout
     br = branch
     cm = commit

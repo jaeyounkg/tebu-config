@@ -22,6 +22,10 @@ set clipboard=unnamedplus
 let mapleader = " "
 nnoremap <leader>s /^\s*
 nnoremap <leader>S ?^\s*
+nnoremap <leader>m /\v^\s*(def<Bar>class<Bar>if<Bar>elif<Bar>else<Bar>for<Bar>while<Bar>try<Bar>except)<CR>
+nnoremap <leader>M ?\v^\s*(def<Bar>class<Bar>if<Bar>elif<Bar>else<Bar>for<Bar>while<Bar>try<Bar>except)<CR>
+nnoremap <leader>] /\v^\s*(def<Bar>class)<CR>
+nnoremap <leader>[ ?\v^\s*(def<Bar>class)<CR>
 
 colorscheme paper
 
